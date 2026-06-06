@@ -27,9 +27,29 @@ export async function POST(req: Request) {
 
     const mailFrom = process.env.SMTP_FROM || `"Enviromate Website" <${smtpUser}>`;
 
+    // Fetch target email and phone dynamically from Firestore
+    let targetEmail = 'envirotechnologies@gmail.com';
+    let targetPhone = '+254113251379';
+    try {
+      const { db } = await import('@/lib/firebase');
+      const { doc, getDoc } = await import('firebase/firestore');
+      const snap = await getDoc(doc(db, 'settings', 'siteContent'));
+      if (snap.exists()) {
+        const contentData = snap.data();
+        if (contentData?.contact?.email) {
+          targetEmail = contentData.contact.email;
+        }
+        if (contentData?.contact?.phone) {
+          targetPhone = contentData.contact.phone;
+        }
+      }
+    } catch (dbErr) {
+      console.error('Failed to fetch dynamic contact details from Firestore in API route:', dbErr);
+    }
+
     await transporter.sendMail({
       from: mailFrom,
-      to: 'enviromatetechnologies@gmail.com',
+      to: targetEmail,
       replyTo: email,
       subject: `New Website Enquiry — ${service || 'General'} | ${name}`,
       html: `
@@ -78,7 +98,7 @@ export async function POST(req: Request) {
           <div style="padding: 30px; background: #f9f9f9;">
             <p style="color: #181b1d; font-size: 16px;">Dear ${name},</p>
             <p style="color: #475355; line-height: 1.7;">Thank you for reaching out to Enviromate Technologies Limited. We have received your message and a member of our team will get back to you within 24 hours.</p>
-            <p style="color: #475355; line-height: 1.7;">In the meantime, feel free to call us directly at <strong style="color: #5dae3e;">+254 720 312 257</strong>.</p>
+            <p style="color: #475355; line-height: 1.7;">In the meantime, feel free to call us directly at <strong style="color: #5dae3e;">${targetPhone}</strong>.</p>
             <p style="color: #475355;">Best regards,<br/><strong style="color: #181b1d;">The Enviromate Team</strong></p>
           </div>
         </div>

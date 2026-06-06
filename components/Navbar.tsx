@@ -14,7 +14,11 @@ const navLinks = [
     href: '#',
     children: [
       { label: 'Construction', href: '/construction' },
-      { label: 'Consultancy', href: '/consultancy' },
+      { label: 'Consultancy', href: '/consultancy?tab=consultancy' },
+      { label: 'Training', href: '/consultancy?tab=training' },
+      { label: 'Surveys', href: '/consultancy?tab=surveys' },
+      { label: 'Fire Extinguishers', href: '/consultancy?tab=fire_extinguishers' },
+      { label: 'Supply of PPEs', href: '/consultancy?tab=ppe_supply' },
     ],
   },
   { label: 'Projects', href: '/projects' },

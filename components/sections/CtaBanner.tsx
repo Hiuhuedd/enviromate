@@ -1,9 +1,31 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import { defaultContent, SiteContent } from '@/lib/content';
 import Link from 'next/link';
 import { ArrowRight, Phone } from 'lucide-react';
 
 export default function CtaBanner() {
+  const [content, setContent] = useState<SiteContent>(defaultContent);
+
+  useEffect(() => {
+    async function fetchContent() {
+      try {
+        const snap = await getDoc(doc(db, 'settings', 'siteContent'));
+        if (snap.exists()) {
+          setContent({ ...defaultContent, ...(snap.data() as SiteContent) });
+        }
+      } catch {
+        // Silently fall back to defaultContent
+      }
+    }
+    fetchContent();
+  }, []);
+
+  const contact = content.contact;
+
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-[#088038] via-[#5dae3e] to-[#94d03c]" />
@@ -24,7 +46,7 @@ export default function CtaBanner() {
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#5dae3e] font-bold rounded-lg hover:bg-[#f5faf2] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
             Get a Free Quote <ArrowRight size={18} />
           </Link>
-          <a href="tel:+254720312257" className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all">
+          <a href={`tel:${contact.phone.replace(/\s/g,'')}`} className="inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white font-semibold rounded-lg border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all">
             <Phone size={18} /> Call Us Now
           </a>
         </div>

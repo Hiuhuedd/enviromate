@@ -114,6 +114,9 @@ export interface ContactContent {
   email: string;
   phone: string;
   whatsapp?: string;
+  facebook?: string;
+  instagram?: string;
+  tiktok?: string;
   offices: Array<{
     city: string;
     address: string;
@@ -179,6 +182,8 @@ export const defaultContent: SiteContent = {
       { title: 'Plant Hire', description: 'Top-of-the-range earth movers, transport equipment, reinforced concrete equipment, and lightweight machinery available for hire.', icon: 'Truck' },
       { title: 'Road Works', description: 'Construction and maintenance of roads and related infrastructure, utilities, and pipework — serving government and private sector clients.', icon: 'Route' },
       { title: 'Water & Sanitation', description: 'Design and construction of water supply and sanitation systems, dams, irrigation, sewerage, and drainage infrastructure.', icon: 'Droplets' },
+      { title: 'Asbestos Removal & Disposal', description: 'Safe and certified asbestos surveying, containment, dismantling, removal, and disposal according to NEMA and EMCA standards.', icon: 'Shield' },
+      { title: 'Biodigester Installation', description: 'Installation of modern, eco-friendly biodigester septic systems for sustainable wastewater management in residential and commercial properties.', icon: 'Droplets' },
     ],
   },
   consultancy: {
@@ -190,10 +195,10 @@ export const defaultContent: SiteContent = {
     services: [
       { title: 'Health & Safety Audits', description: 'Statutory workplace H&S audits as required by the Occupational Safety and Health Act (OSHA 2007), conducted by registered advisers.', icon: 'ShieldCheck' },
       { title: 'Fire Safety Audits', description: 'Fire risk assessments and audits per the Fire Risk Reduction Rules 2007, ensuring legal compliance and a safe work environment.', icon: 'Flame' },
+      { title: 'Training Programs', description: 'OSH Committee Training, First Aid, Fire Safety, Food Safety, Confined Space Entry, Work at Height, Chemical Safety and more.', icon: 'GraduationCap' },
       { title: 'Environmental Impact Assessment', description: 'EIA and Environmental Audits conducted pursuant to EMCA 1999, including full regulatory documentation and compliance reporting.', icon: 'Leaf' },
       { title: 'Risk Assessments', description: 'Systematic hazard identification and risk evaluation to protect workers, equipment, and productivity.', icon: 'AlertTriangle' },
       { title: 'ISO Certification Support', description: 'Training and implementation support for ISO 9001:2015, ISO 22000:2018, ISO 14001, and OHSAS 18001 certification.', icon: 'Award' },
-      { title: 'Training Programs', description: 'OSH Committee Training, First Aid, Fire Safety, Food Safety, Confined Space Entry, Work at Height, Chemical Safety and more.', icon: 'GraduationCap' },
       { title: 'Air Quality & Noise Surveys', description: 'Occupational noise mapping, air quality monitoring, and environmental sampling with actionable recommendations.', icon: 'Wind' },
       { title: 'Energy Management Audits', description: 'Comprehensive energy use analysis with a focus on identifying cost savings, operational improvements, and sustainability.', icon: 'Zap' },
     ],
@@ -232,9 +237,12 @@ export const defaultContent: SiteContent = {
   contact: {
     title: 'Get In Touch',
     subtitle: 'Ready to start your project? Let\'s talk.',
-    email: 'enviromatetechnologies@gmail.com',
-    phone: '+254 720 312 257',
-    whatsapp: '+254720312257',
+    email: 'envirotechnologies@gmail.com',
+    phone: '+254113251379',
+    whatsapp: '+254113251379',
+    facebook: 'https://facebook.com/enviromatetechnologies',
+    instagram: 'https://instagram.com/enviromatetechnologies',
+    tiktok: 'https://tiktok.com/@enviromatetechnologies',
     offices: [
       { city: 'Nairobi (HQ)', address: 'Mountain Mall, Thika Road', floor: '3rd Floor, Room D8' },
       { city: 'Nanyuki', address: 'Nanyuki Business Center', floor: '2nd Floor, Room 202' },
