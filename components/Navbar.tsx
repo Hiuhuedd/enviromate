@@ -134,8 +134,8 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden transition-all duration-300 overflow-y-auto ${
+          mobileOpen ? 'max-h-[90vh] opacity-100' : 'max-h-0 opacity-0'
         } bg-white border-b border-[rgba(93,174,62,0.15)] shadow-lg`}
       >
         <div className="px-6 py-4 flex flex-col gap-1">

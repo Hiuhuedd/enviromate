@@ -67,15 +67,21 @@ export default function ContactPage() {
               <div className="section-label mb-6">Contact Information</div>
               <h2 className="font-display text-3xl font-bold text-[#181b1d] mb-8">Let&apos;s Start a Conversation</h2>
               <div className="space-y-6 mb-10">
-                <a href={`tel:${contact.phone.replace(/\s/g,'')}`} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-xl bg-[#f5faf2] flex items-center justify-center shrink-0 group-hover:bg-[#e8f5e0] transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#f5faf2] flex items-center justify-center shrink-0">
                     <Phone size={20} className="text-[#5dae3e]" />
                   </div>
-                  <div>
-                    <p className="text-[#869399] text-xs font-semibold tracking-widest uppercase mb-1">Phone</p>
-                    <p className="text-[#181b1d] font-medium group-hover:text-[#5dae3e] transition-colors">{contact.phone}</p>
+                  <div className="space-y-4">
+                    <a href="tel:0112252039" className="block group">
+                      <p className="text-[#869399] text-xs font-semibold tracking-widest uppercase mb-1 group-hover:text-[#5dae3e] transition-colors">Consultancy Support</p>
+                      <p className="text-[#181b1d] font-medium group-hover:text-[#5dae3e] transition-colors">0112 252039</p>
+                    </a>
+                    <a href="tel:+254113251379" className="block group">
+                      <p className="text-[#869399] text-xs font-semibold tracking-widest uppercase mb-1 group-hover:text-[#5dae3e] transition-colors">Construction Support</p>
+                      <p className="text-[#181b1d] font-medium group-hover:text-[#5dae3e] transition-colors">+254 113 251 379</p>
+                    </a>
                   </div>
-                </a>
+                </div>
                 <a href={`mailto:${contact.email}`} className="flex items-start gap-4 group">
                   <div className="w-12 h-12 rounded-xl bg-[#f5faf2] flex items-center justify-center shrink-0 group-hover:bg-[#e8f5e0] transition-colors">
                     <Mail size={20} className="text-[#5dae3e]" />

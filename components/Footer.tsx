@@ -141,14 +141,18 @@ export default function Footer() {
           <div>
             <h4 className="text-[#181b1d] text-sm font-semibold tracking-widest uppercase mb-5">Contact</h4>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href={`tel:${contact.phone.replace(/\s/g,'')}`}
-                  className="flex items-start gap-3 text-[#869399] hover:text-[#5dae3e] transition-colors group"
-                >
-                  <Phone size={15} className="mt-0.5 shrink-0" />
-                  <span className="text-sm">{contact.phone}</span>
-                </a>
+              <li className="flex items-start gap-3 text-[#869399]">
+                <Phone size={15} className="mt-0.5 shrink-0 text-[#5dae3e]" />
+                <div className="space-y-3">
+                  <a href="tel:0112252039" className="block group hover:text-[#5dae3e] transition-colors">
+                    <span className="text-[10px] font-semibold tracking-widest uppercase text-[#181b1d] block mb-0.5">Consultancy</span>
+                    <span className="text-sm group-hover:text-[#5dae3e] transition-colors">0112 252039</span>
+                  </a>
+                  <a href="tel:+254113251379" className="block group hover:text-[#5dae3e] transition-colors">
+                    <span className="text-[10px] font-semibold tracking-widest uppercase text-[#181b1d] block mb-0.5">Construction</span>
+                    <span className="text-sm group-hover:text-[#5dae3e] transition-colors">+254 113 251 379</span>
+                  </a>
+                </div>
               </li>
               <li>
                 <a
